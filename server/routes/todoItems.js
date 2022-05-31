@@ -17,3 +17,9 @@ router.post('/api/item', async (req,res)=>{
         res.json(err);
     }
 })
+
+
+
+
+// export router 
+module.exports = router;

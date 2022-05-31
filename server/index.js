@@ -5,14 +5,21 @@ const dotenv = require('dotenv').config();
 const app = express();
 // use express.json() to get date into json format
 app.use(express.json());
+//Port
 const PORT = process.env.PORT || 5500;
+
+
+// Lets import routes
+const TodoItemRoute = require('./routes/todoItems');
 
 // Lets connect to mongodb
 mongoose.connect(process.env.DB_CONNECT)
 .then(() => console.log("Database connected"))
-.catch(err => console.log(err))
+.catch(err => console.log(err)) 
 
 
+
+app.use('/', TodoItemRoute);
 
 
 // Add Port and connect to server
